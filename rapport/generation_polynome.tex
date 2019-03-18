@@ -1,0 +1,12 @@
+\subsubsection{Idée de départ}
+Dans le but d'améliorer la recherche de nombres premiers, nous avons travaillé sur la génération de polynôme de degré 2 dont les valeurs successives sont des nombres premiers.\\
+Lors de quelque recherche personnelle je suis arrivé sur l'interpolation Lagrangienne, ce qui nous a conduit utilisé cette méthode avec 3 nombres premier consécutifs pour produire un polynôme de degré 2 qui génére ces 3 nombres.\\ Ce qui nous permet d'avoir des polynôme de degré 2 qui générent au minimum 3 nombres premier de maniére consécutive pour pouvoir itérer dessus.\\
+\subsubsection{Fonctionnement}
+L'algorithme de génération de polynôme de degré 2 est très simple, il se décompose en 2 parties. Une première partie est l'interpolation Lagrangienne des 3 nombres premiers et la seconde l'itération de ce polynôme.\\
+
+\lstinputlisting[language=Python]{../python/poly_pseudo_algo.py}
+
+
+
+\subsubsection{Résultat obtenue}
+Lors de plusieurs test nous avons peu trouver un polynôme permettant de générer 40 nombres premiers consécutif, ce polynôme est celui que Euler à découvert en 1772.\\ Il est formé par les coefficients $n^2$+n+41, qui pour n allant de 0 à 39 génère 40 polynômes consécutif. Nous avons retrouvé ce polynôme grâce à l'interlation des nombres premiers 41 43 et 47 pour x prennant les valeurs respectives 0 1 et 2.\\ Sinon à part ce polynôme nous n'avons eu aucun résultats significatif.

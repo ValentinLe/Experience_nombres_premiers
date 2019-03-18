@@ -1,0 +1,146 @@
+\documentclass[a4paper,12pt]{article} %style de document
+\usepackage[utf8]{inputenc} %encodage des caractères
+\usepackage[french]{babel} %paquet de langue français
+\usepackage[T1]{fontenc} %encodage de la police
+\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry} %marges
+\usepackage{graphicx} %affichage des images
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{listings}
+\lstset{
+    language=bash, %% Troque para PHP, C, Java, etc... bash é o padrão
+    basicstyle=\ttfamily\small,
+    numberstyle=\footnotesize,
+    numbers=left,
+    backgroundcolor=\color{gray!5},
+    frame=single,
+    tabsize=2,
+    rulecolor=\color{black!30},
+    escapeinside={\%*}{*)},
+    breaklines=true,
+    breakatwhitespace=true,
+    framextopmargin=2pt,
+    framexbottommargin=2pt,
+    inputencoding=utf8,
+    extendedchars=true,
+    literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1,
+}
+\hypersetup{
+	hidelinks,
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\begin{document} %début du document
+
+%----------------------------------
+%page de garde
+%----------------------------------
+
+\begin{titlepage}
+
+\includegraphics[scale=0.3]{images/unicaen.png}
+
+\vspace{7cm}
+
+\begin{center}
+
+\begin{Huge}
+Rapport de Projet Tutoré\\
+\end{Huge}
+\vspace{1cm}
+\begin{huge}
+Expériences sur les nombres premiers\\
+\end{huge}
+\vspace{2cm}
+\begin{large}
+Beauchamp Aymeric 21301016\\
+Chagneux Dimitri 21606807\\
+Mori Baptiste 21602052\\
+Leblond Valentin 21609038\\
+\vspace{1cm}
+L3-Informatique
+\end{large}
+
+\end{center}
+\end{titlepage}
+
+
+%------------------------------
+%sommaire
+%------------------------------
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+%------------------------------
+%contenu
+%------------------------------
+
+
+\section*{Présentation du sujet}
+\addcontentsline{toc}{section}{Présentation du sujet}
+
+Les nombres premiers sont un des objets mathématiques les plus étudiés, de par l'ancienneté de leur découverte et leurs nombreuses propriétés.\\
+En informatique, ils ont plusieurs applications : fonctions de hash, générateurs aléatoires, cryptographie asymétrique...
+Dans ce projet, nous avons choisi de nous pencher sur certains aspects de ces nombres.\\
+
+Nous avons travaillé sur plusieurs axes: les tests de primalité, les nombres de Mersenne, la spirale d'Ulam et la suite de Syracuse. Nous n'avons donc pas uniquement travaillé sur les nombres premiers.
+
+\section{Détection des nombres premiers}
+\subsection{Crible d'Eratosthène}
+\input{crible_erathos.tex}
+
+\subsection{Petit théorème de Fermat}
+\input{th_fermat.tex}
+
+\subsection{Exponentiation modulaire}
+\input{exponentiation_modulaire.tex}
+
+\subsection{Comparaison entre crible d'Eratosthène et petit théorème de Fermat}
+\input{comp_erathos_fermat.tex}
+
+\subsection{Génération de polynôme}
+\input{generation_polynome.tex}
+
+\subsection{Conclusion}
+Nous avons cherché un moyen de tester la primalité d'un nombre sans générer toute une liste. Puis lorsque nous avons vu que le petit théorème de Fermat permettait de calculer plus rapidement une liste de nombres premiers que le crible d’Ératosthène, nous l'avons utilisé pour générer une liste.\\
+
+Par la suite nous avons grandement amélioré le temps de calcul du petit théorème de Fermat à l'aide de l'exponentiation modulaire.\\
+
+Grâce à ce procédé, nous avons pu générer environ un milliard quatre-cent cinquante millions de nombres premiers en à peu près trente heures, contrairement au crible d’Ératosthène qui nous a permis de trouver seulement trente-cinq mille nombres premiers en soixante heures.
+
+\section{Nombres de Mersenne}
+\input{mersenne.tex}
+
+\section{Spirale d'Ulam}
+\input{spirale_ulam.tex}
+
+\section{Syracuse (3n+1)}
+\input{syracuse.tex}
+
+\section*{Conclusion}
+\addcontentsline{toc}{section}{Conclusion}
+
+Nous avons réussi remplir une grand nombre de nos objectifs qui consistaient à implémenter le crible d’Ératosthène, le petit théorème de Fermat, l'exponentiation modulaire, la spirale d'Ulam, la suite de Syracuse, les nombres de Mersenne et l'interpolation Lagrangienne pour générer des polynômes générateurs de nombres premiers.
+
+Pour la partie polynôme générateur de nombres premiers, nous avons réussi à retrouvé le polynôme d'Euler mais le reste des résultats n'a pas été concluant.\\
+
+Plusieurs améliorations sont possibles : pour le crible d’Ératosthène on aurait pu amélioré la liste qui stocke l'ensemble des nombres avec une liste chaînée afin de gagner de l'espace de stockage en modifiant directement cette liste.\\
+Pour la recherche de nombres à partir d'un fichier expérimentée avec les nombres de Mersenne, on pourrait optimiser la recherche pour éviter de traiter toute la liste à chaque fois.\\
+
+Ce sujet nous a permis d'étendre nos connaissances dans un domaine très vaste et toujours d'actualité, ainsi que d'utiliser nos compétences de plusieurs façons différentes. Le défi était de mélanger l'arithmétique et l'informatique afin de procéder à des calculs et faire de l'optimisation de fonctions.
+
+\end{document}
