@@ -16,7 +16,7 @@ Nombre de d'itération pour chaque nombre dans la suite de Syracuse :
 
 <br/>
 
-Variations de la suite de Syracuse avec u_0 = 97 :
+Variations de la suite de Syracuse avec U_0 = 97 :
 <div align="center">
 <img src="https://github.com/ValentinLe/Experience_nombres_premiers/blob/master/java/screenshots/demo_variations.gif" width="700" height="366.05" alt="demo">
 </div>
